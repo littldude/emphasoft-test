@@ -304,12 +304,14 @@
             button.onclick = function() {
                 let modal = this.parentNode.parentNode.parentNode.children[1];
                 let modalInner = this.parentNode.parentNode.parentNode.children[1].children[0];
-                modal.style.display = 'block';
+                modal.classList.toggle('show');
+                let is_active = modal.classList.contains('show');
+                modal.style.display = (is_active ? 'block' : 'none');
                 modalInner.style.display = 'flex';
-                window.onclick = function(event) {
-                    if (event.target.className === "modal") {
-                        event.target.style.display = "none";
-                    }
+                modal.onclick = function() {
+                    modal.classList.toggle('show');
+                    let is_active = modal.classList.contains('show');
+                    modal.style.display = (is_active ? 'block' : 'none');
                 }
             }
         }
