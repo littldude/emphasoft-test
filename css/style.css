@@ -71,11 +71,53 @@ button {
 }
 
 .home {
-  background: linear-gradient(89.93deg, rgba(0, 146, 203, 0.5) 0.06%, rgba(42, 210, 201, 0.5) 99.93%), url("../img/bg-intro.png");
   background-repeat: no-repeat;
   background-position: top right;
+  animation: backgroundGradient 30s ease infinite;
+  position: relative;
+  background: linear-gradient(89.93deg, rgba(0, 146, 203, 0.5) 0.06%, rgba(42, 210, 201, 0.5) 99.93%);
+  background-size: 400% 400%;
+  overflow: hidden;
 }
-
+.home::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  background-image: url("../img/bg-intro.png");
+  width: 1574px;
+  height: 736px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+@-webkit-keyframes AnimationName {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 51%}
+  100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 51%}
+  100%{background-position:0% 50%}
+}
+@-o-keyframes AnimationName {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 51%}
+  100%{background-position:0% 50%}
+}
+@keyframes backgroundGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 .burger {
   display: block;
   width: 35px;
@@ -638,7 +680,6 @@ button {
   height: 25px;
 }
 .footer__icon--instagram {
-  background: -o-radial-gradient(32% 106%, circle farthest-corner, rgb(255, 225, 125) 0%, rgb(255, 205, 105) 10%, rgb(250, 145, 55) 28%, rgb(235, 65, 65) 42%, transparent 82%), -o-linear-gradient(315deg, rgb(35, 75, 215) 12%, rgb(195, 60, 190) 58%);
   background: radial-gradient(circle farthest-corner at 32% 106%, rgb(255, 225, 125) 0%, rgb(255, 205, 105) 10%, rgb(250, 145, 55) 28%, rgb(235, 65, 65) 42%, transparent 82%), linear-gradient(135deg, rgb(35, 75, 215) 12%, rgb(195, 60, 190) 58%);
   border-radius: 6px;
 }

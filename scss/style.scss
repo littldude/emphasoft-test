@@ -71,9 +71,31 @@ button {
     max-width: 1280px;
 }
 .home {
-    background: linear-gradient(89.93deg, rgba(0, 146, 203, 0.5) 0.06%, rgba(42, 210, 201, 0.5) 99.93%), url('../img/bg-intro.png');
     background-repeat: no-repeat;
     background-position: top right;
+    animation: backgroundGradient 30s ease infinite;
+    position: relative;
+    background: linear-gradient(89.93deg, rgba(0, 146, 203, 0.5) 0.06%, rgba(42, 210, 201, 0.5) 99.93%);
+    background-size: 400% 400%;
+    overflow: hidden;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        background-image: url('../img/bg-intro.png');
+        width: 1574px;
+        height: 736px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        z-index: -1;
+    }
+}
+@keyframes backgroundGradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 0%}
+    100%{background-position:0% 50%}
 }
 .burger {
     display: block;
